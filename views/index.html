@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" value="https://www.instagram.com/p/Cm4A5iDSpZS/" />
+      <button type="submit">GET</button>
+    </form>
+
+    <div></div>
+  </body>
+
+  <script>
+    const form = document.querySelector("form");
+    const input = document.querySelector("input");
+    const btn = document.querySelector("button");
+    const div = document.querySelector("div");
+
+    const headers = {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    };
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let val = input.value;
+      val = val.slice(-1) === "/" ? val + "?__a=1&__d=dis" : val + "/?__a=1&__d=dis";
+
+      const body = { url: val };
+
+      fetch("http://localhost:3200/get-posts", {
+        method: "POST",
+        headers,
+        body: JSON.stringify(body),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+
+          // const img = document.createElement("img");
+          // img.src = "data:image/png;base64, " + data.img;
+          // div.appendChild(img);
+
+          // const imgs = data.graphql.shortcode_media.edge_sidecar_to_children.edges;
+          // div.innerHTML = null;
+
+          // imgs.forEach(el => {
+          //   const src = el.node.display_resources[el.node.display_resources.length - 1].src;
+          //   console.log(src);
+          //   const img = document.createElement("img");
+          //   img.src = src;
+          //   div.appendChild(img);
+          // });
+        });
+    });
+  </script>
+</html>

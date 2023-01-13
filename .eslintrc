@@ -1,0 +1,39 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "extends": "standard",
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "semi": ["warn", "always"],
+    "quotes": ["warn", "double"],
+    "no-unused-vars": "warn",
+    "comma-dangle": [
+      "warn",
+      {
+        "arrays": "never",
+        "objects": "ignore",
+        "imports": "never",
+        "exports": "never",
+        "functions": "never"
+      }
+    ],
+    "no-useless-constructor": "off",
+    "space-before-function-paren": [
+      "warn",
+      {
+        "anonymous": "always",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
+    "camelcase": "warn",
+    "no-unreachable": "warn"
+  },
+  "plugins": ["html"]
+}

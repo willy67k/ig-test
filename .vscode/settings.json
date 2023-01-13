@@ -1,0 +1,6 @@
+{
+  "sqltools.format": {
+    "linesBetweenQueries": 2,
+    "reservedWordCase": "upper"
+  }
+}
